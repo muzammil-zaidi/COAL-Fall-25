@@ -1,18 +1,18 @@
 include irvine32.inc
 
 .data
-    msg1   byte "no multiples of 3 found.", 0
-    msg2   byte "the smallest multiple of 3 is: ", 0
+    msg1   byte "No multiples of 3 found.", 0
+    msg2   byte "The smallest multiple of 3 is: ", 0
     smallest_num      dword 0
 
 .code
 main proc
     push 1      
     push 2      
-    push 3       
+    push 6       
     push 4    
     push 5    
-    push 6    
+    push 12    
     push 7     
     push 8     
     push 9     
@@ -55,6 +55,8 @@ not_multiple:
     mov edx, offset msg2
     call writestring
     mov eax, smallest_num
+    mov ebx, 3
+    mul ebx
     call writeint
     call crlf
     jmp done
